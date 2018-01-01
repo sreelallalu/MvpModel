@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2E7D32</color>
+    <color name="colorPrimaryDark">#1B5E20</color>
+    <color name="colorAccent">#4CAF50</color>
+    <color name="snackbar">#2E7D32</color>
+    <color name="white">#ffffff</color>
+    <color name="actionbargreen">#05831e</color>
+    <color name="yellow">#e6ed06</color>
+    <color name="black">#0a5d24</color>
+    <color name="dark">#000000</color>
+    <color name="colorall">#30824C</color>
+    <color name="colorall1">#dc0980</color>
+    <color name="colorallnmn">#69A896</color>
+
+
+    <color name="holo_blue_bright">#ff00ddff</color>
+    <color name="holo_green_light">#ff99cc00</color>
+    <color name="holo_orange_light">#ffffbb33</color>
+    <color name="holo_red_light">#ffff4444</color>
+
+
+    <color name="blue_pressed">#ff0099cc</color>
+    <color name="blue_normal">#ff33b5e5</color>
+    <color name="green_complete">#ff99cc00</color>
+    <color name="purple_progress">#ffaa66cc</color>
+    <color name="red_error">#ffff4444</color>
+    <color name="hint_color">#808080</color>
+</resources>
