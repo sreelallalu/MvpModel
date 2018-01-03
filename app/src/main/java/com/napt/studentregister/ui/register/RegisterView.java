@@ -7,5 +7,7 @@ import com.napt.studentregister.ui._base.MvpView;
  */
 
 public interface RegisterView extends MvpView {
-
+     void cameraClick();
+     void attachmentShow();
+     void datepickShow();
 }

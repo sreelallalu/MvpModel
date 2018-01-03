@@ -1,6 +1,7 @@
-package com.napt.studentregister.cf.model.db;
+package com.napt.studentregister.cf.helper.connection;
 
 import com.napt.studentregister.cf.model.Name_Id;
+import com.napt.studentregister.cf.model.db.LocalBody;
 
 import java.util.List;
 

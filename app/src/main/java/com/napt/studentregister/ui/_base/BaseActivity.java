@@ -11,9 +11,8 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.napt.studentregister.R;
-import com.napt.studentregister.cf.helper.connection.FileFoleder;
-import com.napt.studentregister.cf.helper.connection.SharedPresenter;
-import com.napt.studentregister.cf.model.db.DataBasePresent;
+import com.napt.studentregister.cf.contant.PERMISSION;
+import com.napt.studentregister.cf.helper.PermissionHelper;
 import com.napt.studentregister.di.component.ActivityComponent;
 import com.napt.studentregister.di.component.DaggerActivityComponent;
 import com.napt.studentregister.di.module.ActivityModule;
@@ -32,19 +31,14 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
 
     private ActivityComponent activityComponent;
 
-
-    @Inject
-    protected
-    DataBasePresent databse;
-
-    @Inject
-    protected
-    FileFoleder folder;
-
     @Inject
     Register_i_Presenter<RegisterView>  registerview;
 
 
+
+
+     protected
+    PermissionHelper permissionHelper;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +48,8 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
                 .applicationComponent(((mApp) getApplication()).getComponent())
                 .build();
         activityComponent.inject(this);
+        permissionHelper = new PermissionHelper(this, PERMISSION.ALL, 100);
+
 
     }
 
@@ -104,6 +100,17 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
 
     }
 
+    @Override
+    public void snakbarFixed(int message) {
+     Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),
+                message, Snackbar.LENGTH_SHORT);
+        View sbView = snackbar.getView();
+        sbView.setBackgroundColor(getResources().getColor(R.color.snackbar));
+        TextView textView = (TextView) sbView
+                .findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextColor(ContextCompat.getColor(this, R.color.white));
+        snackbar.show();
+    }
 
 
     @Override

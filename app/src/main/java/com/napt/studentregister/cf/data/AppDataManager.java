@@ -3,7 +3,12 @@ package com.napt.studentregister.cf.data;
 import android.content.Context;
 
 import com.napt.studentregister.cf.helper.connection.SharedPresenter;
+import com.napt.studentregister.cf.model.Name_Id;
+import com.napt.studentregister.cf.helper.connection.DataBasePresent;
+import com.napt.studentregister.cf.model.db.LocalBody;
 import com.napt.studentregister.di.ApplicationContext;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -15,13 +20,15 @@ import javax.inject.Singleton;
 public class AppDataManager implements DataManager {
     private Context mContext;
     private SharedPresenter mPreferencesHelper;
+    private DataBasePresent dataBasePresent;
 
     @Inject
     public AppDataManager(@ApplicationContext Context context,
-                          SharedPresenter preferencesHelper) {
+                          SharedPresenter preferencesHelper,DataBasePresent dataBasePresent) {
         mContext = context;
 
         mPreferencesHelper = preferencesHelper;
+        this.dataBasePresent = dataBasePresent;
     }
 
     @Override
@@ -75,5 +82,35 @@ public class AppDataManager implements DataManager {
     public boolean getLogincheck() {
         return mPreferencesHelper.getLogincheck();
 
+    }
+
+    @Override
+    public void setDistrict(List<Name_Id> list) {
+        dataBasePresent.setDistrict(list);
+    }
+
+    @Override
+    public void setLocalBodyType(List<Name_Id> list) {
+      dataBasePresent.setLocalBodyType(list);
+    }
+
+    @Override
+    public void setLocalBodyName(List<LocalBody> list) {
+   dataBasePresent.setLocalBodyName(list);
+    }
+
+    @Override
+    public List<Name_Id> getDistrict() {
+        return dataBasePresent.getDistrict();
+    }
+
+    @Override
+    public List<Name_Id> getLocalBodyType() {
+        return dataBasePresent.getLocalBodyType();
+    }
+
+    @Override
+    public List<LocalBody> getLocalBodyName(String districId, String locatType) {
+        return dataBasePresent.getLocalBodyName(districId,locatType);
     }
 }

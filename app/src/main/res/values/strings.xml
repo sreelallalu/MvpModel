@@ -2,5 +2,6 @@
     <string name="app_name">NAPT</string>
     <string name="Somethingwent">Something went wrong</string>
     <string name="Json_format_Err">Server Response Error, Try Again Later.!</string>
-    <string name="resourcenotfound">"Resource not found</string>
+    <string name="resourcenotfound">Resource not found</string>
+    <string name="invalid_cntr_pass">Invalid Center_ID or Password"</string>
 </resources>

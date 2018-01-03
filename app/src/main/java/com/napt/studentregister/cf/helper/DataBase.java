@@ -1,4 +1,4 @@
-package com.napt.studentregister.cf.model.db;
+package com.napt.studentregister.cf.helper;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,15 +6,21 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.napt.studentregister.cf.helper.connection.DataBasePresent;
 import com.napt.studentregister.cf.model.Name_Id;
+import com.napt.studentregister.cf.model.db.LocalBody;
+import com.napt.studentregister.di.ApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 /**
  * Created by sreelal on 16/12/17.
  */
-
+@Singleton
 public class DataBase extends SQLiteOpenHelper implements DataBasePresent {
     private static final String DATABASE_NAME = "napt_db";
     private static final int DATABASE_VERSION = 1;
@@ -31,7 +37,8 @@ public class DataBase extends SQLiteOpenHelper implements DataBasePresent {
     private static final String LOCALBN_NAME = "local_t_name";
     private static final String LOCALBN_DISTID = "local_t_distid";
 
-    public DataBase(Context context) {
+    @Inject
+    public DataBase(@ApplicationContext  Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

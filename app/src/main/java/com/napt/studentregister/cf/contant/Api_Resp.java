@@ -1,7 +1,7 @@
 package com.napt.studentregister.cf.contant;
 
-public interface CENTERLOGIN_OUTPUT {
-
+public interface Api_Resp {
+    interface CENTERLOGIN{
         String STATUS = "status";
         String CENTER_ID = "centerid";
         String USER_ID = "userid";
@@ -32,3 +32,10 @@ public interface CENTERLOGIN_OUTPUT {
         String TAX_NAME = "name";
         String TAXT_PER = "percentage";
     }
+
+   interface ATTCHMENT {
+
+        String ATTACHMENT_OBJ="attachment_types";
+        String ATTACH_ID="id";
+        String ATTACH_NAME="name";
+}}

@@ -2,7 +2,6 @@ package com.napt.studentregister.ui.register;
 
 import com.napt.studentregister.cf.data.DataManager;
 import com.napt.studentregister.cf.model.Name_Id;
-import com.napt.studentregister.databinding.StudentRegisterBinding;
 import com.napt.studentregister.di.service.RestBuilderPro;
 import com.napt.studentregister.ui._base.BasePresenter;
 
@@ -22,11 +21,6 @@ import retrofit2.Response;
 
 public class RegisterPresenter<T extends RegisterView> extends BasePresenter<T> implements Register_i_Presenter<T> {
 
-  String share="e";
-
-   /* @Inject
-    SharedPresenter share;*/
-
     @Inject
     public RegisterPresenter(DataManager context) {
         super(context);
@@ -35,7 +29,7 @@ public class RegisterPresenter<T extends RegisterView> extends BasePresenter<T> 
     @Override
     public void requestAttachment() {
 
-        if(share!=null)
+        if(getDataManager().getAttach()==null)
 
         {
             RestBuilderPro.getService().attachment_call().enqueue(new Callback<ResponseBody>() {
@@ -45,7 +39,7 @@ public class RegisterPresenter<T extends RegisterView> extends BasePresenter<T> 
 
                         try {
                             String resp = response.body().string();
-                            //share.setAttach(resp);
+                             getDataManager().setAttach(resp);
                         } catch (Exception e) {
                             e.printStackTrace();
                             getView().showRetry(1);
@@ -65,15 +59,7 @@ public class RegisterPresenter<T extends RegisterView> extends BasePresenter<T> 
         requestAttachment();
     }
 
-    @Override
-    public void setStaticFields(StudentRegisterBinding binding) {
-       List<Name_Id> list=Shirt_SizeListItems();
 
-
-
-
-
-    }
 
 
     private List<Name_Id> Shirt_SizeListItems()

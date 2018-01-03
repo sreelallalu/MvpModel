@@ -39,7 +39,8 @@ public interface MvpView {
 
     void onError(String message);
 
-    void showSnackBar(@StringRes int message);
+    void snakbarFixed(@StringRes int message);
+    void showSnackBar(String message);
     void showRetry(int type);
 
     void showMessage(@StringRes int resId);

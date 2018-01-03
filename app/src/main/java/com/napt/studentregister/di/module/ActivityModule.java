@@ -3,10 +3,8 @@ package com.napt.studentregister.di.module;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
-import com.napt.studentregister.cf.helper.FileSave;
-import com.napt.studentregister.cf.helper.connection.FileFoleder;
-import com.napt.studentregister.cf.model.db.DataBase;
-import com.napt.studentregister.cf.model.db.DataBasePresent;
+import com.napt.studentregister.cf.helper.DataBase;
+import com.napt.studentregister.cf.helper.connection.DataBasePresent;
 import com.napt.studentregister.di.ActivityContext;
 import com.napt.studentregister.di.PerActivity;
 import com.napt.studentregister.ui.login.LoginPresenter;
@@ -46,11 +44,6 @@ public class ActivityModule {
     }
 
 
-    @Provides
-    @PerActivity
-    FileFoleder folder() {
-        return new FileSave(activity);
-    }
 
 
 
@@ -60,7 +53,8 @@ public class ActivityModule {
             (LoginPresenter<LoginView> presenter) {
         return presenter;
     }
-   @Provides
+
+    @Provides
     @PerActivity
    Register_i_Presenter<RegisterView> regpresenter
            (RegisterPresenter<RegisterView> presenter) {

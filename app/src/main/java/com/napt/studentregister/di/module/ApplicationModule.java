@@ -5,7 +5,9 @@ import android.content.Context;
 
 import com.napt.studentregister.cf.data.AppDataManager;
 import com.napt.studentregister.cf.data.DataManager;
+import com.napt.studentregister.cf.helper.DataBase;
 import com.napt.studentregister.cf.helper.SharedHelper;
+import com.napt.studentregister.cf.helper.connection.DataBasePresent;
 import com.napt.studentregister.cf.helper.connection.SharedPresenter;
 import com.napt.studentregister.di.ApplicationContext;
 import com.napt.studentregister.mApp;
@@ -47,7 +49,14 @@ public class ApplicationModule {
     @Provides
     @Singleton
      SharedPresenter sharedPresenter(SharedHelper sharedPreferences) {
+
         return sharedPreferences;
+    }
+    @Provides
+    @Singleton
+    DataBasePresent dataBasePresent(DataBase dataBase) {
+
+        return dataBase;
     }
 }
 

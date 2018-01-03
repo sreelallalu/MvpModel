@@ -3,51 +3,62 @@ package com.napt.studentregister.cf.helper;
 import android.content.Context;
 import android.os.Environment;
 
-import com.napt.studentregister.cf.helper.connection.FileFoleder;
-
 import java.io.File;
-
-import javax.inject.Inject;
 
 /**
  * Created by sreelal on 20/11/17.
  */
 
-public class FileSave implements FileFoleder{
+public class FileSave  {
 
-     Context context;
-
-     @Inject
-    public FileSave(Context context) {
-
-        this.context = context;
-    }
+    Context context;
 
 
 
-    @Override
-    public boolean rootfolder() {
-        File storageDir=null;
-          try {
-           storageDir = Environment.getExternalStoragePublicDirectory("NAPT");
-              if (!storageDir.exists()) {
-                  storageDir.mkdir();
-              }
+
+
+    public static File rootfolder() {
+        File storageDir = null;
+        try {
+            storageDir = Environment.getExternalStoragePublicDirectory("NAPT");
+            if (!storageDir.exists()) {
+                storageDir.mkdir();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return storageDir.mkdir();
+        return storageDir;
     }
 
-    @Override
-    public void profilefolder() {
 
-
+    public  static  File profilefolder() {
+           rootfolder() ;
+        File storageDir = null;
+        try {
+            storageDir = Environment.getExternalStoragePublicDirectory("Profile");
+            if (!storageDir.exists()) {
+                storageDir.mkdir();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return storageDir;
     }
 
-    @Override
-    public void attachfolder() {
 
+    public static File attachfolder() {
+
+          rootfolder() ;
+        File storageDir=null;
+        try {
+            storageDir = Environment.getExternalStoragePublicDirectory("Attachment");
+            if (!storageDir.exists()) {
+                storageDir.mkdir();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return storageDir;
     }
 
 
