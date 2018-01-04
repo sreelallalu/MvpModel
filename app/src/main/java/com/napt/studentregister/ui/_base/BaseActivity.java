@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.napt.studentregister.R;
 import com.napt.studentregister.cf.contant.PERMISSION;
+import com.napt.studentregister.cf.data.DataManager;
 import com.napt.studentregister.cf.helper.PermissionHelper;
 import com.napt.studentregister.di.component.ActivityComponent;
 import com.napt.studentregister.di.component.DaggerActivityComponent;
@@ -39,6 +40,12 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
 
      protected
     PermissionHelper permissionHelper;
+
+    @Inject
+    protected
+    DataManager dataManager;
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +55,7 @@ public class BaseActivity extends AppCompatActivity implements MvpView {
                 .applicationComponent(((mApp) getApplication()).getComponent())
                 .build();
         activityComponent.inject(this);
+
         permissionHelper = new PermissionHelper(this, PERMISSION.ALL, 100);
 
 

@@ -66,7 +66,7 @@ public class LoginPresenter<T extends LoginView> extends BasePresenter<T> implem
                         getView().showMessage(R.string.Somethingwent);
                     }
                 }
-                getView().loading(true, 101, "Loading...");
+                getView().loading(true, 101, "Login");
             }
 
             @Override

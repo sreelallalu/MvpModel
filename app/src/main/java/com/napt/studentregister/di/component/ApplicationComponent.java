@@ -11,13 +11,12 @@ import com.napt.studentregister.mApp;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import dagger.android.support.AndroidSupportInjectionModule;
 
 /**
  * Created by sreelal on 13/12/17.
  */
 @Singleton
-@Component(modules = {AndroidSupportInjectionModule.class,ApplicationModule.class})
+@Component(modules = {ApplicationModule.class})
 public interface ApplicationComponent {
 
    void inject(mApp app);

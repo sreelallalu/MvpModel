@@ -3,8 +3,6 @@ package com.napt.studentregister.di.module;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
-import com.napt.studentregister.cf.helper.DataBase;
-import com.napt.studentregister.cf.helper.connection.DataBasePresent;
 import com.napt.studentregister.di.ActivityContext;
 import com.napt.studentregister.di.PerActivity;
 import com.napt.studentregister.ui.login.LoginPresenter;
@@ -56,19 +54,14 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-   Register_i_Presenter<RegisterView> regpresenter
+    Register_i_Presenter<RegisterView> regpresenter
            (RegisterPresenter<RegisterView> presenter) {
 
         return presenter;
     }
 
 
-    @Provides
-    @PerActivity
-    DataBasePresent dataManager() {
 
-        return new DataBase(activity);
-    }
 
 
 }
