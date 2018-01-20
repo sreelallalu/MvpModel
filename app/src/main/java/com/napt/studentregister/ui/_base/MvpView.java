@@ -48,6 +48,8 @@ public interface MvpView {
     boolean isNetworkConnected();
 
     void hideKeyboard();
+    void takePic(int type);
+    void setCameraSet(BaseActivity.cameraResult cam_result);
 
 
 }

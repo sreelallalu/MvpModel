@@ -13,10 +13,6 @@ public class FileSave  {
 
     Context context;
 
-
-
-
-
     public static File rootfolder() {
         File storageDir = null;
         try {

@@ -10,7 +10,7 @@ import com.napt.studentregister.cf.data.DataManager;
 
 public class  BasePresenter<V extends MvpView> implements MvpPresenter<V> {
 
-    Context context;
+      Context context;
      DataManager dataManager;
 
     public BasePresenter(DataManager dataManager)

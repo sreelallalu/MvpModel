@@ -1,5 +1,7 @@
 package com.napt.studentregister.cf.data;
 
+import android.content.Context;
+
 import com.napt.studentregister.cf.helper.connection.SharedPresenter;
 import com.napt.studentregister.cf.helper.connection.DataBasePresent;
 
@@ -8,4 +10,7 @@ import com.napt.studentregister.cf.helper.connection.DataBasePresent;
  */
 
 public interface DataManager extends SharedPresenter ,DataBasePresent {
+
+    Context getContext();
+
 }

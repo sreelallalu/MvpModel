@@ -23,6 +23,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
     @Inject
     Login_i_Presenter<LoginView> presenter;
 
+
+
     Animation shake ;
 
 
@@ -37,6 +39,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         presenter.onAttach(LoginActivity.this);
         shake = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.shake);
 
+         //TODO temporary
+        if(dataManager.getLogincheck())
+         {onNext();
+          finish();}
     }
 
 

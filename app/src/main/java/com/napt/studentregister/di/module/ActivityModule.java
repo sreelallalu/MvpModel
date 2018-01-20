@@ -1,8 +1,10 @@
 package com.napt.studentregister.di.module;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
+import com.napt.studentregister.cf.adapter.OneField_Adapter;
 import com.napt.studentregister.di.ActivityContext;
 import com.napt.studentregister.di.PerActivity;
 import com.napt.studentregister.ui.login.LoginPresenter;
@@ -42,9 +44,6 @@ public class ActivityModule {
     }
 
 
-
-
-
     @Provides
     @PerActivity
     Login_i_Presenter<LoginView> loginpresenter
@@ -55,13 +54,23 @@ public class ActivityModule {
     @Provides
     @PerActivity
     Register_i_Presenter<RegisterView> regpresenter
-           (RegisterPresenter<RegisterView> presenter) {
+            (RegisterPresenter<RegisterView> presenter) {
 
         return presenter;
     }
 
+    @Provides
+    @PerActivity
+    OneField_Adapter oneField_adapter() {
 
+        return new OneField_Adapter(activity);
+    }
+    @Provides
+    @PerActivity
+    Dialog dialog() {
 
+        return new Dialog(activity);
+    }
 
 
 }

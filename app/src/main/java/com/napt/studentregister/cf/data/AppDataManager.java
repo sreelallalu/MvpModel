@@ -113,4 +113,9 @@ public class AppDataManager implements DataManager {
     public List<LocalBody> getLocalBodyName(String districId, String locatType) {
         return dataBasePresent.getLocalBodyName(districId,locatType);
     }
+
+    @Override
+    public Context getContext() {
+        return mContext;
+    }
 }

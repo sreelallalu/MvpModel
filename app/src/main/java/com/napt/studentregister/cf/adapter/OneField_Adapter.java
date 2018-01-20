@@ -13,18 +13,28 @@ import com.napt.studentregister.cf.model.db.LocalBody;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by sreelal on 21/12/17.
  */
 
-public class OneField_Adapter extends BaseAdapter {
+public class OneField_Adapter extends BaseAdapter  {
 
     List<?> arraylist;
     Context context;
     boolean type=false;
+
+    @Inject
     public OneField_Adapter(Context context) {
         // TODO Auto-generated constructor stub
         this.context=context;
+    }
+
+    public void setType(boolean type,List<?> arrayofUsers)
+    {
+        arraylist=arrayofUsers;
+        this.type=type;
     }
 
     public OneField_Adapter(Context context,
